@@ -71,4 +71,4 @@ Open source and free for personal or commercial use.
 
 ---
 
-**Start by editing `index-5.html` with your information, update your links, and publish your unique portfolio!**
+**Start by editing `index.html` with your information, update your links, and publish your unique portfolio!**
