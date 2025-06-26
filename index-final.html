@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Video Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+
+        :root {
+            /* Новая цветовая схема на основе #69bbd6 */
+            --primary-color: #69bbd6;
+            --primary-dark: #4a9bb8;
+            --primary-darker: #3a7a93;
+            --background-light: #e8f4f8;
+            --background-medium: #f0f8fb;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --shadow-color: rgba(105, 187, 214, 0.1);
+            --accent-color: #5ba8c4;
+            --fiverr-green: #1dbf73;
+            --fiverr-green-dark: #19a463;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, var(--background-light) 0%, var(--background-medium) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: var(--background-medium);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px var(--shadow-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(105, 187, 214, 0.1);
+        }
+
+        h1, h2 {
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--primary-darker);
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .intro img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 0 auto 24px;
+            display: block;
+            /* Убираем синий ободок полностью */
+            border: none;
+            outline: none;
+            box-shadow: none;
+            /* Делаем края более мягкими и плавными */
+            border-radius: 75% 25% 60% 40% / 45% 55% 35% 65%;
+            /* Добавляем мягкую тень для объема */
+            filter: drop-shadow(0 8px 16px rgba(105, 187, 214, 0.2));
+            transition: all 0.3s ease;
+        }
+
+        .intro img:hover {
+            /* Анимация для более плавного эффекта */
+            border-radius: 60% 40% 75% 25% / 55% 45% 65% 35%;
+            filter: drop-shadow(0 12px 24px rgba(105, 187, 214, 0.3));
+            transform: translateY(-5px);
+        }
+
+        .intro-text {
+            margin-bottom: 32px;
+        }
+
+        .intro-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .intro-text .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Обновляем структуру кнопок - делаем две группы */
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-button.primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--text-light);
+        }
+
+        .contact-button.primary:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-darker));
+        }
+
+        .contact-button.fiverr {
+            background: linear-gradient(135deg, var(--fiverr-green), var(--fiverr-green-dark));
+            color: var(--text-light);
+        }
+
+        .contact-button.fiverr:hover {
+            background: linear-gradient(135deg, var(--fiverr-green-dark), #148a55);
+        }
+
+        .contact-button.secondary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: var(--text-light);
+        }
+
+        .contact-button.secondary:hover {
+            background: linear-gradient(135deg, #5a6fd8, #6a4190);
+        }
+
+        .contact-button.third {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: var(--text-light);
+        }
+
+        .contact-button.third:hover {
+            background: linear-gradient(135deg, #ed7fe8, #f04459);
+        }
+
+        .contact-button.fourth {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: var(--text-light);
+        }
+
+        .contact-button.fourth:hover {
+            background: linear-gradient(135deg, #3d8bfe, #00d4ff);
+        }
+
+        .contact-button.fifth {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            color: var(--text-light);
+        }
+
+        .contact-button.fifth:hover {
+            background: linear-gradient(135deg, #f85d87, #fed12d);
+        }
+
+        /* Адаптивный дизайн */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .intro img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .button-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-button {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .intro img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .intro-text p {
+                font-size: 1rem;
+            }
+
+            .contact-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="intro">
+            <img src="pic.jpeg" alt="Talia's Profile Picture" />
+            <h1>Bring Your Vision to Life</h1>
+            <div class="intro-text">
+                <p>Professional <span class="highlight">AI content creator</span> specializing in 
+                AI-generated videos that turn your vision, ideas, and goals into reality. 
+                I create marketing content, commercial marketing videos, explainer 
+                videos, product commercials, and dynamic social media content.</p>
+                <p>Transform your brand with cutting-edge AI technology and creative expertise.</p>
+            </div>
+
+            <div class="contact-buttons">
+                <!-- Первая строка: Fiverr и Explore My Work напротив друг друга -->
+                <div class="button-row">
+                    <a href="https://www.fiverr.com/s/DBXeppo" class="contact-button fiverr" target="_blank" rel="noopener noreferrer">
+                        💼 Hire me on Fiverr
+                    </a>
+                    <a href="portfolio.html" class="contact-button primary">
+                        🎥 Explore My Work
+                    </a>
+                </div>
+
+                <!-- Вторая строка: остальные кнопки -->
+                <div class="button-row">
+                    <a href="#" class="contact-button secondary">
+                        📱 Request
+                    </a>
+                    <a href="#" class="contact-button third">
+                        📞 Telegram
+                    </a>
+                    <a href="#" class="contact-button fourth">
+                        💬 WhatsApp
+                    </a>
+                    <a href="#" class="contact-button fifth">
+                        📧 Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
